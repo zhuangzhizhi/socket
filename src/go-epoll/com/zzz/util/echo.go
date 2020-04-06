@@ -63,7 +63,7 @@ func FD_SET(fd int, p *syscall.FdSet) {
 }
 
 func FD_ISSET(fd int, p *syscall.FdSet) bool {
-	return (p.Bits[fd/64] & (1 << uint(fd) % 64)) != 0
+	return (p.Bits[fd/64] & (1 << (uint(fd) % 64))) != 0
 }
 
 func FD_ZERO(p *syscall.FdSet) {
